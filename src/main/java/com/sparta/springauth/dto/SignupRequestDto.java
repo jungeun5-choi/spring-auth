@@ -13,8 +13,8 @@ public class SignupRequestDto {
     private String username;
     @NotBlank
     private String password;
-    // @Pattern() -> 정규표현식으로 체크
-    @Email    
+    // @Email
+    @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     @NotBlank
     private String email;
     private boolean admin = false;
