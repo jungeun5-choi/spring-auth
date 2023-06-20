@@ -115,19 +115,14 @@ public class JwtUtil {
 
     // HttpServletRequest 에서 Cookie Value : JWT 가져오기
     public String getTokenFromRequest(HttpServletRequest req) {
-
         Cookie[] cookies = req.getCookies();
-
         if(cookies != null) {
             for (Cookie cookie : cookies) {
-
                 if (cookie.getName().equals(AUTHORIZATION_HEADER)) {
                     try {
-                        // Encode 되어 넘어간 Value 다시 Decode*
+                        // Encode 되어 넘어간 Value 다시 Decode
                         return URLDecoder.decode(cookie.getValue(), "UTF-8");
-
                     } catch (UnsupportedEncodingException e) {
-
                         return null;
                     }
                 }
